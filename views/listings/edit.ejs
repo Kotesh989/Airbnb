@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate") -%>
+
+    <body>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h1>Edit</h1>
+                <br><br>
+                <form action="/listings/<%=details._id%>?_method=PUT" method="post" novalidate class="needs-validation">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" placeholder="<%=details.title%>" class="form-control" name="Listing[title]"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please choose a title.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea cols="50" rows="7" placeholder="<%=details.description%>" class="form-control"
+                            name="Listing[destination]" required></textarea>
+                            <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter description.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input class="form-control" placeholder="<%=details.image%>" type="text" name="Listing[image]"
+                            >
+
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-4">
+                            <label for="price" class="form-label">price</label>
+                            <input type="number" placeholder="<%=details.price%>" class="form-control"
+                                name="Listing[price]" required>
+                                <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please choose a price.
+                        </div>
+                        </div>
+                       <div class="mb-3 col-8">
+                            <label for="country" class="form-label">Country</label>
+                            <select class="form-select" name="Listing[country]" id="country" required>
+                                <%- include("../includes/countries.ejs") %>
+                            </select>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please choose a country.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" placeholder="<%=details.location%>"
+                            name="Listing[location]" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please choose a location.
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn add-btn">Submit</button>
+                    <br><br><br>
+                </form>
+            </div>
+        </div>
+    </body>
